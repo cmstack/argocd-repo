@@ -30,4 +30,9 @@ spec:
           value: odoo
         - name: POSTGRES_DB
           value: odoo
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: db-volume
+        nodeSelector: 
+          kubernetes.io/hostname: worker1
 status: {}
