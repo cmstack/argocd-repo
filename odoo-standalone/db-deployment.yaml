@@ -1,0 +1,33 @@
+# DB Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: db
+  name: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - image: postgres:13
+        name: postgres
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+        env:
+        - name: POSTGRES_USER
+          value: odoo
+        - name: POSTGRES_PASSWORD
+          value: odoo
+        - name: POSTGRES_DB
+          value: odoo
+status: {}

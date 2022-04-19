@@ -1,0 +1,36 @@
+# Web Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: odoo:14.0
+        name: odoo
+        ports:
+        - containerPort: 8069
+          name: "web"
+        env:
+        - name: HOST
+          value: db
+        - name: USER
+          value: odoo
+        - name: PASSWORD
+          value: odoo
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+status: {}

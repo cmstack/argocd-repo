@@ -1,2 +1,2 @@
 # argocd-repo
-GitOPS - Testing ArgoCD on my k8s cluster.
+GitOPS - Testing ArgoCD on my standalone k8s cluster.
